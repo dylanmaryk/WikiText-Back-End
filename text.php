@@ -1,4 +1,6 @@
 <?php
+	// IMPORTANT: You must add your own "CURLOPT_USERAGENT" (lines 42, 62, 77, 94) and "INSERT INTO" (line 179) details
+
 	// Include the "database.php" file
 	include 'database.php';
 	
@@ -37,7 +39,7 @@
 		curl_setopt_array($curl, array(
 		    CURLOPT_RETURNTRANSFER => 1,
 		    CURLOPT_URL => 'http://mee.la/api.php?url=http://en.wikipedia.org/wiki/' . $searchResult,
-		    CURLOPT_USERAGENT => 'WikiText, support@wikitext.co.uk'
+		    CURLOPT_USERAGENT => 'INSERT_DESCRIPTION_OF_SERVICE, INSERT_EMAIL_ADDRESS'
 		));
 		
 		$result = curl_exec($curl);
@@ -57,7 +59,7 @@
 		curl_setopt_array($curl, array(
 		    CURLOPT_RETURNTRANSFER => 1,
 		    CURLOPT_URL => 'http://en.wikipedia.org/w/api.php?action=parse&page=' . $searchResult . '&redirects&format=json&section=0',
-		    CURLOPT_USERAGENT => 'WikiText, support@wikitext.co.uk'
+		    CURLOPT_USERAGENT => 'INSERT_DESCRIPTION_OF_SERVICE, INSERT_EMAIL_ADDRESS'
 		));
 		
 		$c = curl_exec($curl);
@@ -72,7 +74,7 @@
 		curl_setopt_array($curlCategories, array(
 		    CURLOPT_RETURNTRANSFER => 1,
 		    CURLOPT_URL => 'http://en.wikipedia.org/w/api.php?action=parse&page=' . $searchResult . '&redirects&format=json&prop=categories',
-		    CURLOPT_USERAGENT => 'WikiText, support@wikitext.co.uk'
+		    CURLOPT_USERAGENT => 'INSERT_DESCRIPTION_OF_SERVICE, INSERT_EMAIL_ADDRESS'
 		));
 		
 		$cCategories = curl_exec($curlCategories);
@@ -89,7 +91,7 @@
 				curl_setopt_array($curl, array(
 				    CURLOPT_RETURNTRANSFER => 1,
 				    CURLOPT_URL => 'http://en.wikipedia.org/w/api.php?action=parse&page=' . $searchResult . '&redirects&format=json',
-				    CURLOPT_USERAGENT => 'WikiText, support@wikitext.co.uk'
+				    CURLOPT_USERAGENT => 'INSERT_DESCRIPTION_OF_SERVICE, INSERT_EMAIL_ADDRESS'
 				));
 				
 				$c = curl_exec($curl);
@@ -174,7 +176,7 @@
 		$q_date = mysql_real_escape_string($date);
 		$q_time = mysql_real_escape_string($time);
 		
-		mysql_query("INSERT INTO WikiTextRecords_Text (Term, Result, Message, Number, Date, Time) VALUES ('$q_search', '$q_searchResult', '$q_result', '$q_number', '$q_date', '$q_time')");
+		mysql_query("INSERT INTO INSERT_DATABASE_NAME (Term, Result, Message, Number, Date, Time) VALUES ('$q_search', '$q_searchResult', '$q_result', '$q_number', '$q_date', '$q_time')");
 	}
 	
 	// Remove brackets from, remove spaces from and shorten the result

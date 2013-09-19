@@ -209,8 +209,8 @@
 		
 		$result = utf8_decode($result);
 		
-		if (strlen($result) > 160)
-			$result = substr($result, 0, 157) . '...';
+		if (strlen($result) > 1600)
+			$result = substr($result, 0, 1597) . '...';
 		
 		return $result;
 	}
